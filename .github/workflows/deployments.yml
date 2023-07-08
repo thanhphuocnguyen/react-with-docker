@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v2
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - run: docker build -t thanhphuocnguyen897/react-with-docker -f Dockerfile.dev .
-      - run: docker run -e CI=true thanhphuocnguyen897/react-with-docker npm run test -- --watchAll
+      - run: docker run -e CI=true thanhphuocnguyen897/react-with-docker npm run test -- --watchAll=false
