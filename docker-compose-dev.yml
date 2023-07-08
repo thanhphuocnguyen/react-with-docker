@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    #* container name to run test after build web
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /home/node/app/node_modules
+      - .:/home/node/app
+    # command: npm run start
+  #TODO use this below instead create new container in docker compose
+  #* docker exec -it web npm run test -- --watchAll 
+  # tests:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.env
+  #   volumes:
+  #     - /home/node/app/node_modules
+  #     - .:/home/node/app
+  #   command: npm run test
